@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Estudiantil</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- jQuery (opcional, sólo si quieres usarlo en algunas funciones) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -21,7 +15,8 @@
     <!-- Pantalla de Login -->
     <section id="login-screen">
         <div class="container">
-            <h1 class="title">Portal Estudiantil</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Logo_UVM_Rojo.svg/2560px-Logo_UVM_Rojo.svg.png" alt="UVM Logo" class="logo" width="290" height="87">
+            <h1 class="title">¡Bienvenid@, lince!</h1>
             <p class="subtitle">Inicia sesión con tu matrícula</p>
 
             <input type="text" id="matricula" placeholder="Matrícula (660123456)">
@@ -34,8 +29,9 @@
     <section id="dashboard" class="hidden">
 
         <header>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Logo_UVM_Rojo.svg/2560px-Logo_UVM_Rojo.svg.png" alt="UVM Logo" class="logo-header" width="50" height="15">
             <h2 id="student-name"></h2>
-            <button class="btn-logout" onclick="logout()">Cerrar sesión</button>
+            <button class="btn-logout" onclick="logout()">Salir</button>
         </header>
 
         <nav class="tabs">
@@ -67,7 +63,7 @@
 
             <div id="perfil" class="tab-content hidden">
                 <div class="card">
-                    <h3><i class="fa-solid fa-id-card icon"></i>Información del Alumno</h3>
+                    <h3><i class="fa-solid fa-id-card icon"></i>Credencial</h3>
                     <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
                     <p><strong>Matrícula:</strong> <span id="perfil-matricula"></span></p>
                     <p><strong>Carrera:</strong> <span id="perfil-carrera"></span></p>
@@ -81,7 +77,7 @@
     </section>
 
     <section id="admin-panel" class="hidden">
-        <header>
+        <header id="header-admin">
             <h2>Panel Administrativo</h2>
             <button class="btn-logout" onclick="logoutAdmin()">Salir</button>
         </header>
@@ -106,9 +102,6 @@
         </table>
 
     </section>
-
-
-    <!-- JS -->
     <script src="js/app.js"></script>
 </body>
 </html>
