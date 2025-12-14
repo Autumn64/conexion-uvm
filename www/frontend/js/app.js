@@ -1,10 +1,7 @@
-// js/app.js (versión corregida)
-// Asegúrate de que API_URL apunte a tu backend (docker: usar host/puerto según correspondan)
 const API_URL = "https://uvm.autumn64.xyz";
 
 let currentStudent = null; // contendrá { id, nombre, matricula, carrera, semestre, email }
 
-// ---------------- LOGIN (usar /auth/login con POST por matrícula) ----------------
 async function login() {
     const matricula = document.getElementById("matricula").value.trim();
 
@@ -90,10 +87,6 @@ function fillProfile() {
 
 // ---------------- DATA FETCHERS (usar id donde el backend lo espera) ----------------
 
-/**
- * Cargar materias inscritas del estudiante
- * Endpoint backend: GET /estudiantes/<int:estudiante_id>/materias
- */
 async function loadMaterias() {
     if (!currentStudent) return;
     try {
@@ -144,10 +137,6 @@ async function loadMaterias() {
     }
 }
 
-/**
- * Cargar horario del estudiante
- * Endpoint backend: GET /horario?estudiante_id=<id>&semestre=<opt>
- */
 async function loadHorario() {
     if (!currentStudent) return;
     try {
@@ -180,10 +169,6 @@ async function loadHorario() {
     }
 }
 
-/**
- * Cargar calificaciones del estudiante
- * Endpoint backend: GET /calificaciones?estudiante_id=<id>
- */
 async function loadCalificaciones() {
     if (!currentStudent) return;
     try {
@@ -239,9 +224,6 @@ async function loadCalificaciones() {
 
 // ---------------- ADMIN PANEL (CRUD) ----------------
 
-/**
- * Login admin sencillo (temporal)
- */
 function loginAdmin() {
     const pass = prompt("Clave admin:");
     if (pass === "admin123") {
@@ -253,10 +235,6 @@ function loginAdmin() {
     }
 }
 
-/**
- * Cargar lista de estudiantes (admin)
- * Endpoint backend: GET /estudiantes
- */
 async function loadAdminStudents() {
     try {
         const res = await fetch(`${API_URL}/estudiantes`);
@@ -290,9 +268,6 @@ async function loadAdminStudents() {
     }
 }
 
-/**
- * Abrir modal para crear estudiante
- */
 function openAdminCreate() {
     Swal.fire({
         title: "Agregar Estudiante",
@@ -334,9 +309,6 @@ function openAdminCreate() {
     });
 }
 
-/**
- * Editar estudiante: abrimos el registro desde el backend por id
- */
 async function openAdminEdit(id) {
     try {
         const resGet = await fetch(`${API_URL}/estudiantes/${id}`);
@@ -386,9 +358,6 @@ async function openAdminEdit(id) {
     }
 }
 
-/**
- * Borrar estudiante por id
- */
 function deleteStudent(id) {
     Swal.fire({
         title: "¿Eliminar estudiante?",
